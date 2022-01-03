@@ -24,6 +24,11 @@ contract SpiderMan is ERC721{
     }
 
     function mint(string memory tokenURI) public {
+         tokenCount +=1;
+        _balances[msg.sender] +=1;
+        _owners[tokenCount] = msg.sender;
+        _tokenURIs[tokenCount] = _tokenURI;
 
+        emit Transfer(address(0),msg.sender,tokenCount);
     }
 }
